@@ -23,7 +23,6 @@ function ReactDOMContainerInfo(topLevelWrapper, node) {
       node.nodeType === DOC_NODE_TYPE ? node : node.ownerDocument :
       null,
     _tag: node ? node.nodeName.toLowerCase() : null,
-    _namespaceURI: node ? node.namespaceURI : null,
   };
   if (__DEV__) {
     info._ancestorInfo = node ?
