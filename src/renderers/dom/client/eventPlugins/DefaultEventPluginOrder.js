@@ -28,7 +28,6 @@ var DefaultEventPluginOrder = [
   keyOf({TapEventPlugin: null}),
   keyOf({EnterLeaveEventPlugin: null}),
   keyOf({ChangeEventPlugin: null}),
-  keyOf({SelectEventPlugin: null}),
   keyOf({BeforeInputEventPlugin: null}),
 ];
 

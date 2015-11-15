@@ -28,7 +28,6 @@ var ReactDefaultBatchingStrategy = require('ReactDefaultBatchingStrategy');
 var ReactEventListener = require('ReactEventListener');
 var ReactInjection = require('ReactInjection');
 var ReactReconcileTransaction = require('ReactReconcileTransaction');
-var SelectEventPlugin = require('SelectEventPlugin');
 var SimpleEventPlugin = require('SimpleEventPlugin');
 
 var alreadyInjected = false;
@@ -61,7 +60,6 @@ function inject() {
     SimpleEventPlugin: SimpleEventPlugin,
     EnterLeaveEventPlugin: EnterLeaveEventPlugin,
     ChangeEventPlugin: ChangeEventPlugin,
-    SelectEventPlugin: SelectEventPlugin,
     BeforeInputEventPlugin: BeforeInputEventPlugin,
   });
 
@@ -76,7 +74,7 @@ function inject() {
   ReactInjection.Class.injectMixin(ReactBrowserComponentMixin);
 
   ReactInjection.DOMProperty.injectDOMPropertyConfig(HTMLDOMPropertyConfig);
-  
+
   ReactInjection.EmptyComponent.injectEmptyComponent('noscript');
 
   ReactInjection.Updates.injectReconcileTransaction(
