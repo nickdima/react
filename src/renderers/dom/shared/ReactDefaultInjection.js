@@ -14,7 +14,6 @@
 var BeforeInputEventPlugin = require('BeforeInputEventPlugin');
 var ChangeEventPlugin = require('ChangeEventPlugin');
 var DefaultEventPluginOrder = require('DefaultEventPluginOrder');
-var EnterLeaveEventPlugin = require('EnterLeaveEventPlugin');
 var ExecutionEnvironment = require('ExecutionEnvironment');
 var HTMLDOMPropertyConfig = require('HTMLDOMPropertyConfig');
 var ReactBrowserComponentMixin = require('ReactBrowserComponentMixin');
@@ -58,7 +57,6 @@ function inject() {
    */
   ReactInjection.EventPluginHub.injectEventPluginsByName({
     SimpleEventPlugin: SimpleEventPlugin,
-    EnterLeaveEventPlugin: EnterLeaveEventPlugin,
     ChangeEventPlugin: ChangeEventPlugin,
     BeforeInputEventPlugin: BeforeInputEventPlugin,
   });
