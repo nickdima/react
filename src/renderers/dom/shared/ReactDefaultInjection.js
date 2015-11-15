@@ -11,7 +11,6 @@
 
 'use strict';
 
-var ChangeEventPlugin = require('ChangeEventPlugin');
 var DefaultEventPluginOrder = require('DefaultEventPluginOrder');
 var ExecutionEnvironment = require('ExecutionEnvironment');
 var HTMLDOMPropertyConfig = require('HTMLDOMPropertyConfig');
@@ -56,7 +55,6 @@ function inject() {
    */
   ReactInjection.EventPluginHub.injectEventPluginsByName({
     SimpleEventPlugin: SimpleEventPlugin,
-    ChangeEventPlugin: ChangeEventPlugin,
   });
 
   ReactInjection.NativeComponent.injectGenericComponentClass(

@@ -25,7 +25,6 @@ var keyOf = require('keyOf');
 var DefaultEventPluginOrder = [
   keyOf({ResponderEventPlugin: null}),
   keyOf({SimpleEventPlugin: null}),
-  keyOf({ChangeEventPlugin: null}),
 ];
 
 module.exports = DefaultEventPluginOrder;
