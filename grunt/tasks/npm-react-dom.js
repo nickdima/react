@@ -5,11 +5,6 @@ var grunt = require('grunt');
 
 var src = 'packages/react-dom/';
 var dest = 'build/packages/react-dom/';
-var dist = dest + 'dist/';
-var distFiles = [
-  'react-dom.js',
-  'react-dom.min.js',
-];
 
 function buildRelease() {
   if (grunt.file.exists(dest)) {
@@ -31,11 +26,6 @@ function buildRelease() {
     }
   });
 
-  // Make built source available inside npm package
-  grunt.file.mkdir(dist);
-  distFiles.forEach(function(file) {
-    grunt.file.copy('build/' + file, dist + file);
-  });
 }
 
 function packRelease() {

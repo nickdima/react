@@ -197,6 +197,10 @@ var ReactBrowserEventEmitter = assign({}, ReactEventEmitterMixin, {
     );
   },
 
+  ensureScrollValueMonitoring: function() {
+    return null;
+  },
+
 });
 
 module.exports = ReactBrowserEventEmitter;
