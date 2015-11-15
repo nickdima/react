@@ -26,7 +26,6 @@ var DefaultEventPluginOrder = [
   keyOf({ResponderEventPlugin: null}),
   keyOf({SimpleEventPlugin: null}),
   keyOf({ChangeEventPlugin: null}),
-  keyOf({BeforeInputEventPlugin: null}),
 ];
 
 module.exports = DefaultEventPluginOrder;

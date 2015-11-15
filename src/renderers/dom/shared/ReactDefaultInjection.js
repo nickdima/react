@@ -11,7 +11,6 @@
 
 'use strict';
 
-var BeforeInputEventPlugin = require('BeforeInputEventPlugin');
 var ChangeEventPlugin = require('ChangeEventPlugin');
 var DefaultEventPluginOrder = require('DefaultEventPluginOrder');
 var ExecutionEnvironment = require('ExecutionEnvironment');
@@ -58,7 +57,6 @@ function inject() {
   ReactInjection.EventPluginHub.injectEventPluginsByName({
     SimpleEventPlugin: SimpleEventPlugin,
     ChangeEventPlugin: ChangeEventPlugin,
-    BeforeInputEventPlugin: BeforeInputEventPlugin,
   });
 
   ReactInjection.NativeComponent.injectGenericComponentClass(
