@@ -20,9 +20,7 @@ var React;
 var ReactBrowserEventEmitter;
 var ReactDOMComponentTree;
 var ReactTestUtils;
-var TapEventPlugin;
 
-var tapMoveThreshold;
 var idCallOrder;
 var recordID = function(id) {
   idCallOrder.push(id);
@@ -37,7 +35,6 @@ var recordIDAndReturnFalse = function(id, event) {
 };
 var LISTENER = jest.genMockFn();
 var ON_CLICK_KEY = keyOf({onClick: null});
-var ON_TOUCH_TAP_KEY = keyOf({onTouchTap: null});
 var ON_CHANGE_KEY = keyOf({onChange: null});
 var ON_MOUSE_ENTER_KEY = keyOf({onMouseEnter: null});
 
@@ -68,7 +65,6 @@ describe('ReactBrowserEventEmitter', function() {
     ReactBrowserEventEmitter = require('ReactBrowserEventEmitter');
     ReactDOMComponentTree = require('ReactDOMComponentTree');
     ReactTestUtils = require('ReactTestUtils');
-    TapEventPlugin = require('TapEventPlugin');
 
     ReactTestUtils.renderIntoDocument(
       <div ref={(c) => GRANDPARENT = c}>
@@ -79,10 +75,6 @@ describe('ReactBrowserEventEmitter', function() {
     );
 
     idCallOrder = [];
-    tapMoveThreshold = TapEventPlugin.tapMoveThreshold;
-    EventPluginHub.injection.injectEventPluginsByName({
-      TapEventPlugin: TapEventPlugin,
-    });
   });
 
   it('should store a listener correctly', function() {
@@ -331,59 +323,6 @@ describe('ReactBrowserEventEmitter', function() {
     expect(idCallOrder[0]).toBe(getInternal(CHILD));
   });
 
-  it('should infer onTouchTap from a touchStart/End', function() {
-    EventPluginHub.putListener(
-      getInternal(CHILD),
-      ON_TOUCH_TAP_KEY,
-      recordID.bind(null, getInternal(CHILD))
-    );
-    ReactTestUtils.SimulateNative.touchStart(
-      CHILD,
-      ReactTestUtils.nativeTouchData(0, 0)
-    );
-    ReactTestUtils.SimulateNative.touchEnd(
-      CHILD,
-      ReactTestUtils.nativeTouchData(0, 0)
-    );
-    expect(idCallOrder.length).toBe(1);
-    expect(idCallOrder[0]).toBe(getInternal(CHILD));
-  });
-
-  it('should infer onTouchTap from when dragging below threshold', function() {
-    EventPluginHub.putListener(
-      getInternal(CHILD),
-      ON_TOUCH_TAP_KEY,
-      recordID.bind(null, getInternal(CHILD))
-    );
-    ReactTestUtils.SimulateNative.touchStart(
-      CHILD,
-      ReactTestUtils.nativeTouchData(0, 0)
-    );
-    ReactTestUtils.SimulateNative.touchEnd(
-      CHILD,
-      ReactTestUtils.nativeTouchData(0, tapMoveThreshold - 1)
-    );
-    expect(idCallOrder.length).toBe(1);
-    expect(idCallOrder[0]).toBe(getInternal(CHILD));
-  });
-
-  it('should not onTouchTap from when dragging beyond threshold', function() {
-    EventPluginHub.putListener(
-      getInternal(CHILD),
-      ON_TOUCH_TAP_KEY,
-      recordID.bind(null, getInternal(CHILD))
-    );
-    ReactTestUtils.SimulateNative.touchStart(
-      CHILD,
-      ReactTestUtils.nativeTouchData(0, 0)
-    );
-    ReactTestUtils.SimulateNative.touchEnd(
-      CHILD,
-      ReactTestUtils.nativeTouchData(0, tapMoveThreshold + 1)
-    );
-    expect(idCallOrder.length).toBe(0);
-  });
-
   it('should listen to events only once', function() {
     spyOn(EventListener, 'listen');
     ReactBrowserEventEmitter.listenTo(ON_CLICK_KEY, document);
@@ -422,36 +361,6 @@ describe('ReactBrowserEventEmitter', function() {
     for (i = 0; i < setEventListeners.length; i++) {
       expect(dependencies.indexOf(setEventListeners[i])).toBeTruthy();
     }
-  });
-
-  it('should bubble onTouchTap', function() {
-    EventPluginHub.putListener(
-      getInternal(CHILD),
-      ON_TOUCH_TAP_KEY,
-      recordID.bind(null, getInternal(CHILD))
-    );
-    EventPluginHub.putListener(
-      getInternal(PARENT),
-      ON_TOUCH_TAP_KEY,
-      recordID.bind(null, getInternal(PARENT))
-    );
-    EventPluginHub.putListener(
-      getInternal(GRANDPARENT),
-      ON_TOUCH_TAP_KEY,
-      recordID.bind(null, getInternal(GRANDPARENT))
-    );
-    ReactTestUtils.SimulateNative.touchStart(
-      CHILD,
-      ReactTestUtils.nativeTouchData(0, 0)
-    );
-    ReactTestUtils.SimulateNative.touchEnd(
-      CHILD,
-      ReactTestUtils.nativeTouchData(0, 0)
-    );
-    expect(idCallOrder.length).toBe(3);
-    expect(idCallOrder[0]).toBe(getInternal(CHILD));
-    expect(idCallOrder[1]).toBe(getInternal(PARENT));
-    expect(idCallOrder[2]).toBe(getInternal(GRANDPARENT));
   });
 
 });
