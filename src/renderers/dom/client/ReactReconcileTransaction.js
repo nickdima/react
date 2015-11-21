@@ -12,12 +12,12 @@
 
 'use strict';
 
-var CallbackQueue = require('CallbackQueue');
-var PooledClass = require('PooledClass');
+var CallbackQueue = require('react/lib/CallbackQueue');
+var PooledClass = require('react/lib/PooledClass');
 var ReactBrowserEventEmitter = require('ReactBrowserEventEmitter');
-var Transaction = require('Transaction');
+var Transaction = require('react/lib/Transaction');
 
-var assign = require('Object.assign');
+var assign = require('react/lib/Object.assign');
 
 /**
  * Suppresses events (blur/focus) that could be inadvertently dispatched due to

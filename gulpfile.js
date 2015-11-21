@@ -13,6 +13,7 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var flatten = require('gulp-flatten');
 var del = require('del');
+var replace = require('gulp-replace');
 
 var babelPluginDEV = require('fbjs-scripts/babel/dev-expression');
 var babelPluginModules = require('fbjs-scripts/babel/rewrite-modules');
@@ -49,6 +50,7 @@ gulp.task('react:modules', function() {
   return gulp
     .src(paths.react.src)
     .pipe(babel(babelOpts))
+    .pipe(replace('require(\'./react', 'require(\'react'))
     .pipe(flatten())
     .pipe(gulp.dest(paths.react.lib));
 });

@@ -12,20 +12,20 @@
 'use strict';
 
 var DefaultEventPluginOrder = require('DefaultEventPluginOrder');
-var ExecutionEnvironment = require('ExecutionEnvironment');
+var ExecutionEnvironment = require('react/lib/ExecutionEnvironment');
 var HTMLDOMPropertyConfig = require('HTMLDOMPropertyConfig');
-var ReactBrowserComponentMixin = require('ReactBrowserComponentMixin');
+var ReactBrowserComponentMixin = require('react/lib/ReactBrowserComponentMixin');
 var ReactComponentBrowserEnvironment =
-  require('ReactComponentBrowserEnvironment');
+  require('react/lib/ReactComponentBrowserEnvironment');
 var ReactDOMComponent = require('ReactDOMComponent');
-var ReactDOMComponentTree = require('ReactDOMComponentTree');
+var ReactDOMComponentTree = require('react/lib/ReactDOMComponentTree');
 var ReactDOMTreeTraversal = require('ReactDOMTreeTraversal');
-var ReactDOMTextComponent = require('ReactDOMTextComponent');
-var ReactDefaultBatchingStrategy = require('ReactDefaultBatchingStrategy');
-var ReactEventListener = require('ReactEventListener');
-var ReactInjection = require('ReactInjection');
+var ReactDOMTextComponent = require('react/lib/ReactDOMTextComponent');
+var ReactDefaultBatchingStrategy = require('react/lib/ReactDefaultBatchingStrategy');
+var ReactEventListener = require('react/lib/ReactEventListener');
+var ReactInjection = require('react/lib/ReactInjection');
 var ReactReconcileTransaction = require('ReactReconcileTransaction');
-var SimpleEventPlugin = require('SimpleEventPlugin');
+var SimpleEventPlugin = require('react/lib/SimpleEventPlugin');
 
 var alreadyInjected = false;
 
@@ -83,7 +83,7 @@ function inject() {
   if (__DEV__) {
     var url = (ExecutionEnvironment.canUseDOM && window.location.href) || '';
     if ((/[?&]react_perf\b/).test(url)) {
-      var ReactDefaultPerf = require('ReactDefaultPerf');
+      var ReactDefaultPerf = require('react/lib/ReactDefaultPerf');
       ReactDefaultPerf.start();
     }
   }

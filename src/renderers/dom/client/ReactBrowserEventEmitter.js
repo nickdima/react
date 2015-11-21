@@ -12,10 +12,10 @@
 
 'use strict';
 
-var EventPluginRegistry = require('EventPluginRegistry');
-var ReactEventEmitterMixin = require('ReactEventEmitterMixin');
+var EventPluginRegistry = require('react/lib/EventPluginRegistry');
+var ReactEventEmitterMixin = require('react/lib/ReactEventEmitterMixin');
 
-var assign = require('Object.assign');
+var assign = require('react/lib/Object.assign');
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:

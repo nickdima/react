@@ -12,14 +12,14 @@
 'use strict';
 
 var ReactDefaultInjection = require('ReactDefaultInjection');
-var ReactMount = require('ReactMount');
-var ReactPerf = require('ReactPerf');
-var ReactUpdates = require('ReactUpdates');
+var ReactMount = require('react/lib/ReactMount');
+var ReactPerf = require('react/lib/ReactPerf');
+var ReactUpdates = require('react/lib/ReactUpdates');
 var ReactVersion = require('ReactVersion');
 
-var findDOMNode = require('findDOMNode');
-var renderSubtreeIntoContainer = require('renderSubtreeIntoContainer');
-var warning = require('warning');
+var findDOMNode = require('react/lib/findDOMNode');
+var renderSubtreeIntoContainer = require('react/lib/renderSubtreeIntoContainer');
+var warning = require('react/lib/warning');
 
 ReactDefaultInjection.inject();
 
@@ -38,7 +38,7 @@ var React = {
 };
 
 if (__DEV__) {
-  var ExecutionEnvironment = require('ExecutionEnvironment');
+  var ExecutionEnvironment = require('react/lib/ExecutionEnvironment');
   if (ExecutionEnvironment.canUseDOM && window.top === window.self) {
 
     var testFunc = function testFn() {};

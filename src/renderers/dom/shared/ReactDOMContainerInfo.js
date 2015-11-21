@@ -11,7 +11,7 @@
 
 'use strict';
 
-var validateDOMNesting = require('validateDOMNesting');
+var validateDOMNesting = require('react/lib/validateDOMNesting');
 
 var DOC_NODE_TYPE = 9;
 

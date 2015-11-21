@@ -12,7 +12,7 @@
 'use strict';
 
 var ReactDefaultInjection = require('ReactDefaultInjection');
-var ReactServerRendering = require('ReactServerRendering');
+var ReactServerRendering = require('react/lib/ReactServerRendering');
 var ReactVersion = require('ReactVersion');
 
 ReactDefaultInjection.inject();

@@ -14,36 +14,36 @@
 
 'use strict';
 
-var AutoFocusUtils = require('AutoFocusUtils');
+var AutoFocusUtils = require('react/lib/AutoFocusUtils');
 var CSSPropertyOperations = require('CSSPropertyOperations');
-var DOMLazyTree = require('DOMLazyTree');
-var DOMProperty = require('DOMProperty');
-var DOMPropertyOperations = require('DOMPropertyOperations');
-var EventConstants = require('EventConstants');
-var EventPluginHub = require('EventPluginHub');
-var EventPluginRegistry = require('EventPluginRegistry');
+var DOMLazyTree = require('react/lib/DOMLazyTree');
+var DOMProperty = require('react/lib/DOMProperty');
+var DOMPropertyOperations = require('react/lib/DOMPropertyOperations');
+var EventConstants = require('react/lib/EventConstants');
+var EventPluginHub = require('react/lib/EventPluginHub');
+var EventPluginRegistry = require('react/lib/EventPluginRegistry');
 var ReactBrowserEventEmitter = require('ReactBrowserEventEmitter');
 var ReactComponentBrowserEnvironment =
-  require('ReactComponentBrowserEnvironment');
-var ReactDOMButton = require('ReactDOMButton');
-var ReactDOMComponentFlags = require('ReactDOMComponentFlags');
-var ReactDOMComponentTree = require('ReactDOMComponentTree');
-var ReactDOMInput = require('ReactDOMInput');
-var ReactDOMOption = require('ReactDOMOption');
-var ReactDOMSelect = require('ReactDOMSelect');
-var ReactDOMTextarea = require('ReactDOMTextarea');
-var ReactMultiChild = require('ReactMultiChild');
-var ReactPerf = require('ReactPerf');
-var ReactUpdateQueue = require('ReactUpdateQueue');
+  require('react/lib/ReactComponentBrowserEnvironment');
+var ReactDOMButton = require('react/lib/ReactDOMButton');
+var ReactDOMComponentFlags = require('react/lib/ReactDOMComponentFlags');
+var ReactDOMComponentTree = require('react/lib/ReactDOMComponentTree');
+var ReactDOMInput = require('react/lib/ReactDOMInput');
+var ReactDOMOption = require('react/lib/ReactDOMOption');
+var ReactDOMSelect = require('react/lib/ReactDOMSelect');
+var ReactDOMTextarea = require('react/lib/ReactDOMTextarea');
+var ReactMultiChild = require('react/lib/ReactMultiChild');
+var ReactPerf = require('react/lib/ReactPerf');
+var ReactUpdateQueue = require('react/lib/ReactUpdateQueue');
 
-var assign = require('Object.assign');
-var canDefineProperty = require('canDefineProperty');
-var escapeTextContentForBrowser = require('escapeTextContentForBrowser');
+var assign = require('react/lib/Object.assign');
+var canDefineProperty = require('react/lib/canDefineProperty');
+var escapeTextContentForBrowser = require('react/lib/escapeTextContentForBrowser');
 var invariant = require('invariant');
-var isEventSupported = require('isEventSupported');
+var isEventSupported = require('react/lib/isEventSupported');
 var keyOf = require('keyOf');
 var shallowEqual = require('shallowEqual');
-var validateDOMNesting = require('validateDOMNesting');
+var validateDOMNesting = require('react/lib/validateDOMNesting');
 var warning = require('warning');
 
 var Flags = ReactDOMComponentFlags;

@@ -12,13 +12,13 @@
 
 'use strict';
 
-var ReactPerf = require('ReactPerf');
+var ReactPerf = require('react/lib/ReactPerf');
 
-var camelizeStyleName = require('camelizeStyleName');
-var dangerousStyleValue = require('dangerousStyleValue');
-var hyphenateStyleName = require('hyphenateStyleName');
-var memoizeStringOnly = require('memoizeStringOnly');
-var warning = require('warning');
+var camelizeStyleName = require('react/lib/camelizeStyleName');
+var dangerousStyleValue = require('react/lib/dangerousStyleValue');
+var hyphenateStyleName = require('react/lib/hyphenateStyleName');
+var memoizeStringOnly = require('react/lib/memoizeStringOnly');
+var warning = require('react/lib/warning');
 
 var processStyleName = memoizeStringOnly(function(styleName) {
   return hyphenateStyleName(styleName);

@@ -11,7 +11,7 @@
 
 'use strict';
 
-var DOMProperty = require('DOMProperty');
+var DOMProperty = require('react/lib/DOMProperty');
 
 var MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
