@@ -19,6 +19,7 @@ var ReactComponentBrowserEnvironment =
   require('react/lib/ReactComponentBrowserEnvironment');
 var ReactDOMComponent = require('ReactDOMComponent');
 var ReactDOMComponentTree = require('react/lib/ReactDOMComponentTree');
+var ReactDOMEmptyComponent = require('react/lib/ReactDOMEmptyComponent');
 var ReactDOMTreeTraversal = require('ReactDOMTreeTraversal');
 var ReactDOMTextComponent = require('react/lib/ReactDOMTextComponent');
 var ReactDefaultBatchingStrategy = require('react/lib/ReactDefaultBatchingStrategy');
@@ -69,7 +70,11 @@ function inject() {
 
   ReactInjection.DOMProperty.injectDOMPropertyConfig(HTMLDOMPropertyConfig);
 
-  ReactInjection.EmptyComponent.injectEmptyComponent('noscript');
+  ReactInjection.EmptyComponent.injectEmptyComponentFactory(
+    function(instantiate) {
+      return new ReactDOMEmptyComponent(instantiate);
+    }
+  );
 
   ReactInjection.Updates.injectReconcileTransaction(
     ReactReconcileTransaction
